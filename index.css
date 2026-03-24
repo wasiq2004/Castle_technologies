@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  
+  --color-primary: #3B82F6;
+  --color-secondary: #8B5CF6;
+  --color-bg-deep: #000000;
+  --color-bg-soft: #0A0A0A;
+  
+  --animate-gradient: gradient 8s linear infinite;
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+body {
+  @apply bg-bg-deep text-white font-sans antialiased selection:bg-primary/30 selection:text-white;
+  overflow-x: hidden;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  padding: 1px;
+  border-radius: inherit;
+}
+
+.gradient-border-inner {
+  @apply bg-bg-deep;
+  border-radius: inherit;
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
