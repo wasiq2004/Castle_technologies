@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { Cpu, Globe, Smartphone, Zap, Cloud, ArrowRight, Star, CheckCircle2 } from 'lucide-react';
-import { Button, Card, Section, GradientText } from '../components/UI';
+import { Button, Card, Section, GradientText } from './UI';
 
 export const Home = () => {
   const services = [
@@ -17,7 +17,7 @@ export const Home = () => {
   ];
 
   const projects = [
-    { title: 'Nexus AI', category: 'Artificial Intelligence', image: 'https://picsum.photos/seed/ai/800/600', tech: ['Python', 'TensorFlow', 'React'] },
+    { title: 'Vish Design Studio', category: 'Web Development', image: 'https://image.thum.io/get/width/1200/noanimate/https://www.vishdesignstudio.com', tech: ['Next.js', 'UI/UX', 'Branding'] },
     { title: 'Vortex E-commerce', category: 'Web Development', image: 'https://picsum.photos/seed/web/800/600', tech: ['Next.js', 'Tailwind', 'Stripe'] },
     { title: 'Zenith App', category: 'Mobile Development', image: 'https://picsum.photos/seed/mobile/800/600', tech: ['React Native', 'Firebase'] },
   ];
@@ -58,10 +58,10 @@ export const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="primary" className="w-full sm:w-auto px-8 py-4 text-lg" icon={ArrowRight}>
+              <Button variant="primary" className="w-full sm:w-auto px-8 py-4 text-lg" icon={ArrowRight} href="/contact">
                 Get Started
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto px-8 py-4 text-lg">
+              <Button variant="outline" className="w-full sm:w-auto px-8 py-4 text-lg" href="/services">
                 View Services
               </Button>
             </div>

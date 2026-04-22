@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Section, GradientText, Button, Card } from '../components/UI';
+import { Section, GradientText, Button, Card } from './UI';
 
 export const Projects = () => {
   const [filter, setFilter] = useState('All');
@@ -14,7 +14,7 @@ export const Projects = () => {
 
   const projects = [
     { id: 1, title: 'Nexus AI', category: 'AI', image: 'https://picsum.photos/seed/nexus/800/600', desc: 'Next-gen predictive analytics platform for retail.' },
-    { id: 2, title: 'Vortex E-commerce', category: 'Web', image: 'https://picsum.photos/seed/vortex/800/600', desc: 'High-performance storefront with headless architecture.' },
+    { id: 2, title: 'Vish Design Studio', category: 'Web', image: 'https://image.thum.io/get/width/1200/noanimate/https://www.vishdesignstudio.com', desc: 'Creative agency website project for Vish Design Studio.' },
     { id: 3, title: 'Zenith App', category: 'Mobile', image: 'https://picsum.photos/seed/zenith/800/600', desc: 'Wellness and meditation app with real-time tracking.' },
     { id: 4, title: 'Quantum CRM', category: 'Web', image: 'https://picsum.photos/seed/quantum/800/600', desc: 'Cloud-based customer relationship management system.' },
     { id: 5, title: 'Visionary AR', category: 'AI', image: 'https://picsum.photos/seed/vision/800/600', desc: 'Augmented reality solution for industrial maintenance.' },

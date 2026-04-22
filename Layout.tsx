@@ -49,7 +49,7 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Button variant="primary" className="text-sm py-2 px-5">
+          <Button variant="primary" className="text-sm py-2 px-5" href="/contact">
             Start Project
           </Button>
         </div>
@@ -81,7 +81,7 @@ export const Navbar = () => {
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               ))}
-              <Button variant="primary" className="w-full mt-4">
+              <Button variant="primary" className="w-full mt-4" href="/contact">
                 Start Project
               </Button>
             </div>

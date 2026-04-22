@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
-import { Section, GradientText, Card } from '../components/UI';
+import { Section, GradientText, Card } from './UI';
 
 export const About = () => {
   const team = [
