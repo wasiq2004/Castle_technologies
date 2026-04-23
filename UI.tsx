@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { LucideIcon } from "lucide-react";
 import { ReactNode, Key } from "react";
@@ -40,8 +41,16 @@ export const Button = ({ children, onClick, variant = 'primary', className = '',
   );
 
   if (href) {
+    const isInternal = href.startsWith('/');
+    if (isInternal) {
+      return (
+        <Link to={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
+          {content}
+        </Link>
+      );
+    }
     return (
-      <a href={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
+      <a href={href} className={`${baseStyles} ${variants[variant]} ${className}`} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     );

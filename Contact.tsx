@@ -1,13 +1,41 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, MessageSquare, Globe } from 'lucide-react';
-import { Section, GradientText, Card, Button } from '../components/UI';
+import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Loader2 } from 'lucide-react';
+import { Section, GradientText, Card, Button } from './UI';
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: 'AI Development',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', service: 'AI Development', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="pt-20">
       {/* Header */}
@@ -35,12 +63,15 @@ export const Contact = () => {
         >
           <Card className="p-8 md:p-12">
             <h2 className="text-2xl font-display font-bold mb-8">Send us a Message</h2>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Full Name</label>
                   <input 
                     type="text" 
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="John Doe" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
                   />
@@ -49,6 +80,9 @@ export const Contact = () => {
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Email Address</label>
                   <input 
                     type="email" 
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="john@example.com" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
                   />
@@ -59,6 +93,8 @@ export const Contact = () => {
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Phone Number</label>
                 <input 
                   type="tel" 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+1 (555) 000-0000" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
                 />
@@ -66,12 +102,16 @@ export const Contact = () => {
 
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Service Interested In</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors appearance-none">
-                  <option className="bg-bg-soft">AI Development</option>
-                  <option className="bg-bg-soft">Web Development</option>
-                  <option className="bg-bg-soft">Mobile App Development</option>
-                  <option className="bg-bg-soft">Automation Systems</option>
-                  <option className="bg-bg-soft">Cloud & DevOps</option>
+                <select 
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors appearance-none"
+                >
+                  <option className="bg-bg-soft" value="AI Development">AI Development</option>
+                  <option className="bg-bg-soft" value="Web Development">Web Development</option>
+                  <option className="bg-bg-soft" value="Mobile App Development">Mobile App Development</option>
+                  <option className="bg-bg-soft" value="Automation Systems">Automation Systems</option>
+                  <option className="bg-bg-soft" value="Cloud & DevOps">Cloud & DevOps</option>
                 </select>
               </div>
 
@@ -79,17 +119,33 @@ export const Contact = () => {
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Message</label>
                 <textarea 
                   rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about your project..." 
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
                 />
               </div>
 
-              <Button variant="primary" className="w-full py-4" icon={Send}>
-                Send Message
+              <Button 
+                variant="primary" 
+                className="w-full py-4" 
+                icon={status === 'loading' ? Loader2 : Send}
+                onClick={() => {}} // Form handles submit
+              >
+                {status === 'loading' ? 'Sending...' : 'Send Message'}
               </Button>
+
+              {status === 'success' && (
+                <p className="text-green-500 text-sm text-center">Message sent successfully!</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-500 text-sm text-center">Failed to send message. Please try again.</p>
+              )}
             </form>
           </Card>
         </motion.div>
+
 
         {/* Info & Map */}
         <motion.div

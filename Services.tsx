@@ -5,7 +5,7 @@
 
 import { motion } from 'motion/react';
 import { Cpu, Globe, Smartphone, Zap, Cloud, CheckCircle2 } from 'lucide-react';
-import { Section, GradientText, Card, Button } from '../components/UI';
+import { Section, GradientText, Card, Button } from './UI';
 
 export const Services = () => {
   const detailedServices = [
