@@ -90,7 +90,7 @@ export const Services = () => {
                   </li>
                 ))}
               </ul>
-              <Button variant="primary">Get a Quote</Button>
+              <Button variant="primary" href="/contact">Get a Quote</Button>
             </div>
             
             <div className="flex-1 w-full">
@@ -135,7 +135,7 @@ export const Services = () => {
                   </li>
                 ))}
               </ul>
-              <Button variant={plan.popular ? 'primary' : 'outline'} className="w-full">Choose Plan</Button>
+              <Button variant={plan.popular ? 'primary' : 'outline'} className="w-full" href="/contact">Choose Plan</Button>
             </Card>
           ))}
         </div>

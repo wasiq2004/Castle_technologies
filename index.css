@@ -20,6 +20,7 @@
 body {
   @apply bg-bg-deep text-white font-sans antialiased selection:bg-primary/30 selection:text-white;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .app-shell {
@@ -42,6 +43,19 @@ body {
   width: 100% !important;
   height: 100% !important;
   opacity: 0.9;
+}
+
+@media (max-width: 767px) {
+  .wave-bg {
+    background:
+      radial-gradient(90% 80% at 18% 14%, rgba(59, 130, 246, 0.26), transparent 70%),
+      radial-gradient(85% 70% at 82% 12%, rgba(34, 211, 238, 0.2), transparent 72%),
+      #030712;
+  }
+
+  .wave-bg canvas {
+    opacity: 0.65;
+  }
 }
 
 .glass {

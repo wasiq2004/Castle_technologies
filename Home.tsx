@@ -23,7 +23,7 @@ export const Home = () => {
   ];
 
   const testimonials = [
-    { name: 'Sarah Johnson', role: 'CEO, TechFlow', content: 'Castle Technologies transformed our legacy systems into a modern, AI-driven powerhouse. Their expertise is unmatched.', rating: 5 },
+    { name: 'Sarah Johnson', role: 'CEO, TechFlow', content: 'Their team transformed our legacy systems into a modern, AI-driven powerhouse. Their expertise is unmatched.', rating: 5 },
     { name: 'Michael Chen', role: 'CTO, InnovateX', content: 'The web application they built for us is incredibly fast and intuitive. Our conversion rate increased by 40%.', rating: 5 },
     { name: 'Elena Rodriguez', role: 'Product Manager, CloudScale', content: 'Exceptional attention to detail and a truly futuristic design approach. They are our go-to tech partner.', rating: 5 },
   ];
@@ -31,10 +31,10 @@ export const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-24 sm:pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-pulse delay-1000" />
+          <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-[70%] rounded-full bg-primary/20 blur-[100px] animate-pulse sm:left-1/4 sm:top-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[120px]" />
+          <div className="absolute bottom-10 right-0 h-64 w-64 translate-x-1/4 rounded-full bg-secondary/20 blur-[100px] animate-pulse delay-1000 sm:bottom-1/4 sm:right-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[120px]" />
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         </div>
 
@@ -107,7 +107,7 @@ export const Home = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">Why Choose <GradientText>CastleTech</GradientText>?</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">Why Choose <GradientText>Castle Technologies</GradientText>?</h2>
           <div className="space-y-8">
             {[
               { title: 'Cutting-edge Technology', desc: 'We use the latest tools and frameworks to build future-proof solutions.' },
@@ -143,11 +143,11 @@ export const Home = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-deep to-transparent opacity-60" />
           </div>
-          <div className="absolute -bottom-6 -left-6 glass p-6 rounded-2xl border-white/10 glow-primary">
+          <div className="mt-6 ml-0 inline-block glass rounded-2xl border-white/10 p-4 glow-primary sm:p-6 lg:absolute lg:-bottom-6 lg:-left-6 lg:mt-0">
             <div className="text-3xl font-bold">99%</div>
             <div className="text-xs text-gray-400 uppercase tracking-widest">Client Satisfaction</div>
           </div>
-          <div className="absolute -top-6 -right-6 glass p-6 rounded-2xl border-white/10 glow-secondary">
+          <div className="mt-4 mr-0 inline-block glass rounded-2xl border-white/10 p-4 glow-secondary sm:p-6 lg:absolute lg:-top-6 lg:-right-6 lg:mt-0">
             <div className="text-3xl font-bold">250+</div>
             <div className="text-xs text-gray-400 uppercase tracking-widest">Projects Completed</div>
           </div>
@@ -181,16 +181,16 @@ export const Home = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform">View Case Study</Button>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/55 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+                  <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform" href="/projects">View Case Study</Button>
                 </div>
               </div>
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col gap-3 px-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="text-xl font-bold mb-1">{project.title}</h3>
                   <p className="text-primary text-sm font-medium">{project.category}</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
                     <span key={t} className="text-[10px] uppercase tracking-tighter px-2 py-1 glass rounded-md text-gray-400">{t}</span>
                   ))}
@@ -236,7 +236,7 @@ export const Home = () => {
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Latest <GradientText>Insights</GradientText></h2>
             <p className="text-gray-400">Stay updated with the latest trends in technology.</p>
           </div>
-          <Button variant="outline">Read All Articles</Button>
+          <Button variant="outline" href="/contact">Contact for Insights</Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -270,7 +270,7 @@ export const Home = () => {
 
       {/* CTA Banner */}
       <Section>
-        <div className="relative rounded-[40px] overflow-hidden p-12 md:p-24 text-center">
+        <div className="relative overflow-hidden rounded-[32px] p-8 text-center sm:p-12 md:rounded-[40px] md:p-24">
           <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-90" />
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
           

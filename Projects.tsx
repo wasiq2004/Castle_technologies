@@ -77,10 +77,10 @@ export const Projects = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 p-6 text-center opacity-100 transition-opacity duration-300 md:p-8 md:opacity-0 md:group-hover:opacity-100">
                     <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                     <p className="text-sm text-gray-300 mb-6">{project.desc}</p>
-                    <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform">View Case Study</Button>
+                    <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform" href="/contact">View Case Study</Button>
                   </div>
                 </div>
                 <div className="flex justify-between items-center px-2">

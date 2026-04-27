@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Loader2 } from 'lucide-react';
 import { Section, GradientText, Card, Button } from './UI';
+import { submitContactForm } from './lib/forms';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,26 +13,20 @@ export const Contact = () => {
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: 'AI Development', message: '' });
-      } else {
-        setStatus('error');
-      }
+      await submitContactForm(formData);
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', service: 'AI Development', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
       setStatus('error');
     }
   };
@@ -130,8 +125,8 @@ export const Contact = () => {
               <Button 
                 variant="primary" 
                 className="w-full py-4" 
+                type="submit"
                 icon={status === 'loading' ? Loader2 : Send}
-                onClick={() => {}} // Form handles submit
               >
                 {status === 'loading' ? 'Sending...' : 'Send Message'}
               </Button>
@@ -140,7 +135,7 @@ export const Contact = () => {
                 <p className="text-green-500 text-sm text-center">Message sent successfully!</p>
               )}
               {status === 'error' && (
-                <p className="text-red-500 text-sm text-center">Failed to send message. Please try again.</p>
+                <p className="text-red-500 text-sm text-center">{errorMessage || 'Failed to send message. Please try again.'}</p>
               )}
             </form>
           </Card>
@@ -161,10 +156,10 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-sm mb-1">Email Us</h4>
-                <p className="text-xs text-gray-400">hello@castletech.com</p>
+                <p className="text-xs text-gray-400">castle.techy@gmail.com</p>
               </div>
             </Card>
-            <Card className="p-6 flex items-start gap-4">
+            {/* <Card className="p-6 flex items-start gap-4">
               <div className="p-3 rounded-xl bg-secondary/10 border border-secondary/20">
                 <Phone className="w-5 h-5 text-secondary" />
               </div>
@@ -172,8 +167,8 @@ export const Contact = () => {
                 <h4 className="font-bold text-sm mb-1">Call Us</h4>
                 <p className="text-xs text-gray-400">+1 (888) CASTLE-0</p>
               </div>
-            </Card>
-            <Card className="p-6 flex items-start gap-4">
+            </Card> */}
+            {/* <Card className="p-6 flex items-start gap-4">
               <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
                 <MapPin className="w-5 h-5 text-blue-500" />
               </div>
@@ -181,19 +176,19 @@ export const Contact = () => {
                 <h4 className="font-bold text-sm mb-1">Visit Us</h4>
                 <p className="text-xs text-gray-400">123 Future Plaza, Silicon Valley, CA</p>
               </div>
-            </Card>
-            <Card className="p-6 flex items-start gap-4">
+            </Card> */}
+            {/* <Card className="p-6 flex items-start gap-4">
               <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
                 <Globe className="w-5 h-5 text-purple-500" />
               </div>
               <div>
                 <h4 className="font-bold text-sm mb-1">Global Presence</h4>
-                <p className="text-xs text-gray-400">Offices in London, Tokyo, Dubai</p>
+                <p className="text-xs text-gray-400">Offices in Singapore, India, Dubai</p>
               </div>
-            </Card>
+            </Card> */}
           </div>
 
-          <div className="aspect-square lg:aspect-auto lg:h-[400px] rounded-3xl overflow-hidden glass border-white/10 relative">
+          {/* <div className="aspect-square lg:aspect-auto lg:h-[400px] rounded-3xl overflow-hidden glass border-white/10 relative">
             <img 
               src="https://picsum.photos/seed/map/800/800" 
               alt="Map" 
@@ -208,13 +203,13 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex justify-center gap-6">
-            <a href="#" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><MessageSquare className="w-6 h-6" /></a>
-            <a href="#" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><Globe className="w-6 h-6" /></a>
-            <a href="#" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><Mail className="w-6 h-6" /></a>
-          </div>
+          {/* <div className="flex justify-center gap-6">
+            <a href="mailto:castle.techy@gmail.com?subject=Project%20Inquiry" aria-label="Email Castle Technologies" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><MessageSquare className="w-6 h-6" /></a>
+            <a href="/" aria-label="Go to homepage" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><Globe className="w-6 h-6" /></a>
+            <a href="mailto:castle.techy@gmail.com" aria-label="Send an email to Castle Technologies" className="p-4 glass rounded-2xl hover:text-primary transition-colors"><Mail className="w-6 h-6" /></a>
+          </div> */}
         </motion.div>
       </Section>
     </div>

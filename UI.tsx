@@ -15,9 +15,10 @@ interface ButtonProps {
   className?: string;
   icon?: LucideIcon;
   href?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-export const Button = ({ children, onClick, variant = 'primary', className = '', icon: Icon, href }: ButtonProps) => {
+export const Button = ({ children, onClick, variant = 'primary', className = '', icon: Icon, href, type = 'button' }: ButtonProps) => {
   const baseStyles = "relative px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden group";
   
   const variants = {
@@ -60,6 +61,7 @@ export const Button = ({ children, onClick, variant = 'primary', className = '',
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      type={type}
       onClick={onClick}
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
@@ -88,7 +90,7 @@ export const Card = ({ children, className = '', glow = false }: CardProps) => {
 
 export const Section = ({ children, className = '', id }: { children: ReactNode; className?: string; id?: string }) => {
   return (
-    <section id={id} className={`py-24 px-6 md:px-12 max-w-7xl mx-auto ${className}`}>
+    <section id={id} className={`py-20 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto ${className}`}>
       {children}
     </section>
   );
@@ -99,5 +101,15 @@ export const GradientText = ({ children, className = '' }: { children: ReactNode
     <span className={`gradient-text ${className}`}>
       {children}
     </span>
+  );
+};
+
+export const BrandLogo = ({ className = '' }: { className?: string }) => {
+  return (
+    <img
+      src="/assets/CASTLE%20TECHNOLOGIES-04.png"
+      alt="Castle Technologies"
+      className={className}
+    />
   );
 };
