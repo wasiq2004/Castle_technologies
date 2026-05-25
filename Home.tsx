@@ -17,9 +17,10 @@ export const Home = () => {
   ];
 
   const projects = [
-    { title: 'Vish Design Studio', category: 'Web Development', image: 'https://image.thum.io/get/width/1200/noanimate/https://www.vishdesignstudio.com', tech: ['Next.js', 'UI/UX', 'Branding'] },
-    { title: 'Vortex E-commerce', category: 'Web Development', image: 'https://picsum.photos/seed/web/800/600', tech: ['Next.js', 'Tailwind', 'Stripe'] },
-    { title: 'Zenith App', category: 'Mobile Development', image: 'https://picsum.photos/seed/mobile/800/600', tech: ['React Native', 'Firebase'] },
+    { title: 'Vish Design Studio', category: 'Web Development', image: 'https://image.thum.io/get/width/1600/noanimate/https://www.vishdesignstudio.com', tech: ['Next.js', 'UI/UX', 'Branding'] },
+    { title: 'Apex Skill Tech', category: 'Web Development', image: 'https://image.thum.io/get/width/1600/noanimate/https://apexskilltech.com/', tech: ['Website', 'Branding', 'Performance'] },
+    { title: 'Libra Legal Consultancy', category: 'Web Development', image: 'https://image.thum.io/get/width/1600/noanimate/https://libralegalconsultancy.ae/', tech: ['Corporate', 'Legal', 'UI/UX'] },
+    { title: 'Dhaanish Chennai WhatsApp', category: 'Web Development', image: 'https://image.thum.io/get/width/1600/noanimate/https://whatsapp.dhaanishchennai.in/', tech: ['Landing Page', 'Conversion', 'Responsive'] },
   ];
 
   const testimonials = [
@@ -33,8 +34,8 @@ export const Home = () => {
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-24 sm:pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-[70%] rounded-full bg-primary/20 blur-[100px] animate-pulse sm:left-1/4 sm:top-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[120px]" />
-          <div className="absolute bottom-10 right-0 h-64 w-64 translate-x-1/4 rounded-full bg-secondary/20 blur-[100px] animate-pulse delay-1000 sm:bottom-1/4 sm:right-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[120px]" />
+          <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-[70%] rounded-full bg-primary/20 blur-[110px] sm:left-1/4 sm:top-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[130px]" style={{ animation: 'orbFloatA 14s ease-in-out infinite' }} />
+          <div className="absolute bottom-10 right-0 h-64 w-64 translate-x-1/4 rounded-full bg-secondary/20 blur-[110px] sm:bottom-1/4 sm:right-1/4 sm:h-96 sm:w-96 sm:translate-x-0 sm:blur-[130px]" style={{ animation: 'orbFloatB 18s ease-in-out infinite' }} />
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         </div>
 

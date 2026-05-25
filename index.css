@@ -17,6 +17,16 @@
   50% { background-position: 100% 50%; }
 }
 
+@keyframes orbFloatA {
+  0%, 100% { transform: translate3d(-70%, 0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(-62%, -16px, 0) scale(1.08); opacity: 0.85; }
+}
+
+@keyframes orbFloatB {
+  0%, 100% { transform: translate3d(25%, 0, 0) scale(1); opacity: 0.5; }
+  50% { transform: translate3d(18%, 14px, 0) scale(1.1); opacity: 0.82; }
+}
+
 body {
   @apply bg-bg-deep text-white font-sans antialiased selection:bg-primary/30 selection:text-white;
   overflow-x: hidden;
@@ -42,7 +52,8 @@ body {
 .wave-bg canvas {
   width: 100% !important;
   height: 100% !important;
-  opacity: 0.9;
+  opacity: 0.96;
+  filter: saturate(1.08) contrast(1.04);
 }
 
 @media (max-width: 767px) {
@@ -54,7 +65,7 @@ body {
   }
 
   .wave-bg canvas {
-    opacity: 0.65;
+    opacity: 0.75;
   }
 }
 

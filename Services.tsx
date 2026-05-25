@@ -108,38 +108,6 @@ export const Services = () => {
         ))}
       </Section>
 
-      {/* Pricing Section (Extra) */}
-      <Section className="bg-bg-soft/50 rounded-[40px] my-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Flexible <GradientText>Pricing</GradientText></h2>
-          <p className="text-gray-400">Solutions for every stage of your business.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { name: 'Startup', price: '2,499', features: ['Single Platform', 'Basic AI Integration', 'Standard Support', '1 Month Delivery'] },
-            { name: 'Business', price: '5,999', features: ['Multi-platform', 'Advanced AI', 'Priority Support', '3 Months Delivery'], popular: true },
-            { name: 'Enterprise', price: 'Custom', features: ['Full Ecosystem', 'Custom AI Models', '24/7 Dedicated Support', 'Ongoing Partnership'] },
-          ].map((plan) => (
-            <Card key={plan.name} className={`p-10 flex flex-col ${plan.popular ? 'border-primary/50 glow-primary' : ''}`}>
-              {plan.popular && <div className="text-xs font-bold text-primary uppercase tracking-widest mb-4">Most Popular</div>}
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <div className="mb-8">
-                <span className="text-4xl font-bold">{plan.price === 'Custom' ? '' : '$'}{plan.price}</span>
-                {plan.price !== 'Custom' && <span className="text-gray-500 text-sm">/project</span>}
-              </div>
-              <ul className="space-y-4 mb-10 flex-grow">
-                {plan.features.map(f => (
-                  <li key={f} className="text-sm text-gray-400 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button variant={plan.popular ? 'primary' : 'outline'} className="w-full" href="/contact">Choose Plan</Button>
-            </Card>
-          ))}
-        </div>
-      </Section>
     </div>
   );
 };
