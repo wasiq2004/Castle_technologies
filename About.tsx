@@ -4,17 +4,9 @@
  */
 
 import { motion } from 'motion/react';
-import { Linkedin, Twitter, Github } from 'lucide-react';
 import { Section, GradientText, Card } from './UI';
 
 export const About = () => {
-  const team = [
-    { name: 'Alex Castle', role: 'Founder & CEO', image: 'https://picsum.photos/seed/alex/400/400' },
-    { name: 'Elena Vance', role: 'Head of AI', image: 'https://picsum.photos/seed/elena/400/400' },
-    { name: 'Marcus Wright', role: 'Lead Developer', image: 'https://picsum.photos/seed/marcus/400/400' },
-    { name: 'Sofia Chen', role: 'UX Director', image: 'https://picsum.photos/seed/sofia/400/400' },
-  ];
-
   return (
     <div className="pt-20">
       <Section className="py-32 text-center">
@@ -84,43 +76,6 @@ export const About = () => {
         </div>
       </Section>
 
-      <Section>
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-display font-bold md:text-5xl">Meet the <GradientText>Visionaries</GradientText></h2>
-          <p className="text-gray-400">The brilliant minds behind the company.</p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="relative mb-6 aspect-square overflow-hidden rounded-2xl border border-white/10 glass">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-bg-deep to-transparent p-6 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
-                  <div className="flex gap-4">
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn" className="rounded-full glass p-2 transition-colors hover:text-primary"><Linkedin className="h-4 w-4" /></a>
-                    <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit X" className="rounded-full glass p-2 transition-colors hover:text-primary"><Twitter className="h-4 w-4" /></a>
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub" className="rounded-full glass p-2 transition-colors hover:text-primary"><Github className="h-4 w-4" /></a>
-                  </div>
-                </div>
-              </div>
-              <h4 className="mb-1 text-center text-xl font-bold">{member.name}</h4>
-              <p className="text-center text-sm font-medium text-primary">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
     </div>
   );
 };

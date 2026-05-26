@@ -10,15 +10,13 @@ import { Section, GradientText, Button, Card } from './UI';
 export const Projects = () => {
   const [filter, setFilter] = useState('All');
 
-  const categories = ['All', 'AI', 'Web', 'Mobile'];
+  const categories = ['All', 'Web'];
 
   const projects = [
-    { id: 1, title: 'Nexus AI', category: 'AI', image: 'https://picsum.photos/seed/nexus/800/600', desc: 'Next-gen predictive analytics platform for retail.' },
-    { id: 2, title: 'Vish Design Studio', category: 'Web', image: 'https://image.thum.io/get/width/1200/noanimate/https://www.vishdesignstudio.com', desc: 'Creative agency website project for Vish Design Studio.' },
-    { id: 3, title: 'Zenith App', category: 'Mobile', image: 'https://picsum.photos/seed/zenith/800/600', desc: 'Wellness and meditation app with real-time tracking.' },
-    { id: 4, title: 'Quantum CRM', category: 'Web', image: 'https://picsum.photos/seed/quantum/800/600', desc: 'Cloud-based customer relationship management system.' },
-    { id: 5, title: 'Visionary AR', category: 'AI', image: 'https://picsum.photos/seed/vision/800/600', desc: 'Augmented reality solution for industrial maintenance.' },
-    { id: 6, title: 'Pulse Fitness', category: 'Mobile', image: 'https://picsum.photos/seed/pulse/800/600', desc: 'Social fitness platform with wearable integration.' },
+    { id: 1, title: 'Vish Design Studio', category: 'Web', image: 'https://image.thum.io/get/width/1600/noanimate/https://www.vishdesignstudio.com', url: 'https://www.vishdesignstudio.com', desc: 'Creative agency website preview loaded from vishdesignstudio.com.' },
+    { id: 2, title: 'Apex Skill Tech', category: 'Web', image: 'https://image.thum.io/get/width/1600/noanimate/https://apexskilltech.com/', url: 'https://apexskilltech.com/', desc: 'Business website preview loaded from apexskilltech.com.' },
+    { id: 3, title: 'Libra Legal Consultancy', category: 'Web', image: 'https://image.thum.io/get/width/1600/noanimate/https://libralegalconsultancy.ae/', url: 'https://libralegalconsultancy.ae/', desc: 'Corporate legal website preview loaded from libralegalconsultancy.ae.' },
+    { id: 4, title: 'Dhaanish Chennai WhatsApp', category: 'Web', image: 'https://image.thum.io/get/width/1600/noanimate/https://whatsapp.dhaanishchennai.in/', url: 'https://whatsapp.dhaanishchennai.in/', desc: 'Landing page preview loaded from whatsapp.dhaanishchennai.in.' },
   ];
 
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
@@ -80,7 +78,7 @@ export const Projects = () => {
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 p-6 text-center opacity-100 transition-opacity duration-300 md:p-8 md:opacity-0 md:group-hover:opacity-100">
                     <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                     <p className="text-sm text-gray-300 mb-6">{project.desc}</p>
-                    <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform" href="/contact">View Case Study</Button>
+                    <Button variant="primary" className="scale-90 group-hover:scale-100 transition-transform" href={project.url}>Visit Website</Button>
                   </div>
                 </div>
                 <div className="flex justify-between items-center px-2">

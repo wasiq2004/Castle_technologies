@@ -37,7 +37,7 @@ export const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 glass border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 group">
-          <BrandLogo className="h-10 w-auto sm:h-12" />
+          <BrandLogo className="h-12 w-auto sm:h-14" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -121,7 +121,7 @@ export const Footer = () => {
       <div className="mx-auto mb-16 grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-4">
         <div className="col-span-1">
           <Link to="/" className="mb-6 flex items-center gap-2">
-            <BrandLogo className="h-12 w-auto sm:h-14" />
+            <BrandLogo className="h-14 w-auto sm:h-16" />
           </Link>
           <p className="text-sm leading-relaxed text-gray-400">
             Building the future of technology with innovative AI, web, and automation solutions for modern businesses.
