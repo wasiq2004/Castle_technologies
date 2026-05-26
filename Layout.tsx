@@ -37,7 +37,7 @@ export const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 glass border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 group">
-          <BrandLogo className="h-12 w-auto sm:h-14" />
+          <BrandLogo className="h-30 w-auto sm:h-24" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
